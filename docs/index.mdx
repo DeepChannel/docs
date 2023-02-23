@@ -1,0 +1,77 @@
+---
+slug: /
+sidebar_position: 1
+title: Getting Started
+---
+
+import Video from "@site/src/components/Video";
+import DbtCoreR from "@site/src/components/DbtCoreR";
+
+## What is Deep Channel?
+
+Deep Channel is a streamlined workspace to analyze, transform, and test data using data warehouses and <DbtCoreR />. 
+
+Deep Channel combines the database connectivity of a SQL IDE with an advanced dbt project editor to deliver an unparalleled development experience with real time error reporting, error linting, and autocomplete. 
+
+## What makes Deep Channel different?
+
+Today, data professionals spend their day jumping between disconnected tools like SQL IDEs, text editors, and command line programs.
+
+Using Deep Channel, data professionals spend less time jumping between disconnected tools and more time doing deep, focused analytics work.
+
+Here are just a few of the ways Deep Channel improves workflows:
+* A desktop app gives powerful keyboard shortcuts, OS notifications, fast project compilation and error notifications, and quick access in the Dock/taskbar
+* <DbtCoreR /> runs directly in the app, providing lightening fast compilation of your dbt models
+* Advanced autocomplete suggestions for SQL and Jinja syntax
+* Real time error reporting for invalid model syntax and unrecognized columns
+* Column level awareness in dbt projects powering features like Go to Definition, Peek Definition, and hovering over a relation to see its schema
+* Quickly view the lineage of a model, its compiled SQL, or a preview of the model's results
+* A robust dbt Command bar that suggests commands, models, file locations, packages and more
+
+## Security
+Your data and credentials stay between you and your data warehouse. We do not collect any data about your data warehouse, dbt Project, or credentials.
+
+## Downloading
+
+Deep Channel is available for macOS Intel, macOS Apple Silicon, Windows, and Linux. 
+
+Download the app at [www.deepchannel.com](http://www.deepchannel.com).
+
+:::note
+macOS users with M1 or M2 chips should download the Apple Silicon version for optimal performance.
+:::
+
+## Installing
+
+### macOS Installation
+Double click the .dmg file that was downloaded. Drag the Deep Channel application into the Applications folder.
+
+### Windows Installation
+Double click the Deep Channel Setup.exe application.
+
+### Linux Installation
+import AnchorNoRef from "@site/src/components/AnchorNoRef";
+
+Deep Channel has first class support for recent Ubuntu and Ubuntu LTS releases.
+
+Other distributions may be able to run the application, but some functionality may not work as intended. At present, we do not offer support or bug fixes for other Linux distributions.
+
+#### AppImage Integration
+The <AnchorNoRef href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</AnchorNoRef> utility can be used to better integrate the app on Ubuntu and other Linux distributions.
+
+Refer to the <AnchorNoRef href="https://github.com/TheAssassin/AppImageLauncher#installation">installation instructions for AppImageLauncher</AnchorNoRef> to get it setup on your computer.
+
+Once setup, you can integrate Deep Channel easily by
+1. Downloading the Deep Channel AppImage release binary.
+2. Right click the AppImage, open **Properties** and make the file executable.
+  <p><img src="/product/linux-users/appimage-properties.png"></img></p>
+3. Right click and click **Run** or double click the AppImage to launch the app.
+  <p><img src="/product/linux-users/appimage-run.png"></img></p>
+4. If this is the first time you're using AppImageLauncher, you will get a prompt: check **Ask me whether to move new AppImages into a central location** and then click **OK**.
+  <p><img src="/product/linux-users/appimage-launcher-first-run.png"></img></p>
+5. AppImageLauncher will ask you to set up Desktop Integration, click **Integate and run**. This will setup a desktop application launcher, similar to your other apps and move the AppImage into the preconfigured location.
+  <p><img src="/product/linux-users/appimage-integrate-and-run.png"></img></p>
+6. On app updates you will be prompted again for Desktop Integration, you should click **Integrate and run** to seamlessly integrate the new app version.
+
+After following these steps, you will find the app listed alongside your other apps,
+<img src="/product/linux-users/appimage-desktop-listing.png"></img>

@@ -1,0 +1,19 @@
+---
+sidebar_position: 5
+title: Lineage Graph
+---
+
+import DbtCoreR from "@site/src/components/DbtCoreR";
+import Keybinding from "@site/src/components/Keybinding";
+
+Click the **Lineage** button or press <Keybinding mac="⌘ ." winux="ctrl+." /> to view the lineage graph of your entire project. If a model is focused, the lineage graph will filter to show the parents and children of that model.
+
+<img src="/product/lineage-graph.png"></img>
+
+### Jump to node
+
+Press  <Keybinding mac="⌘" winux="ctrl" /> and click on any node in the graph to open the the file that defines that node.
+
+### Options
+The **Options** selectors allow you to filter the nodes that are rendered in the graph. Specify the **resources**, **packages** any additional **--exclude** and **--select** selectors and hit **Update Graph**.
+

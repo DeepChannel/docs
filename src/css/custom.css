@@ -1,0 +1,67 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic");
+@import url("https://fonts.googleapis.com/css?family=Roboto%20Mono:400,400italic,700,700italic");
+
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-size-base: 16px;
+  --ifm-menu-color-background-active: #e6f3f3;
+  --ifm-menu-link-padding-vertical: 4px;
+  --ifm-toc-padding-vertical: 4px;
+  --ifm-font-family-base: 'Roboto', sans-serif;
+  --ifm-font-family-monospace: "Roboto Mono",sfmono-regular,consolas,liberation mono,menlo,courier,monospace;
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.menu__list-item:not(:first-child) {
+  margin-top: 0;
+}
+
+.menu__link {
+  border-radius: 0rem !important;
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.2rem;
+}
+
+.markdown > h2 {
+  --ifm-h2-font-size: 1.7rem;
+}
+
+.markdown > h3 {
+  --ifm-h3-font-size: inherit;
+}
+
+.menu {
+  font-size: 13px;
+}
+.menu__link--sublist:after{
+  height: 15px;
+  min-width: 15px;
+}

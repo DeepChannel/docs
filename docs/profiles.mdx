@@ -1,0 +1,210 @@
+---
+sidebar_position: 2
+title: Profiles
+---
+
+import AnchorNoRef from "@site/src/components/AnchorNoRef";
+
+Deep Channel requires a `profiles.yml` file to establish a connection to the data warehouse.
+
+Deep Channel will check for a `profiles.yml` file in four places:
+
+1. The location of the `DBT_PROFILES_DIR` environment variable
+1. The root of the dbt project
+1. Any custom path set in your Settings (Settings > dbt > Custom profiles.yml path)
+1. In your home directory, at  `~/.dbt/profiles.yml`
+
+If you already have a `profiles.yml` you can skip ahead to [Projects](/projects). If you need to create or configure your `profiles.yml` file, keep reading.
+
+### Creating a profiles.yml file
+If you don’t have one, you can create a new one in a few minutes. It is reccomended to create your profiles.yml file inside the `.dbt` directory of your home directory.
+
+If you don’t have a `.dbt` folder in your home directory, just create a new one:
+
+```sh
+mkdir ~/.dbt
+```
+
+And then create a profiles.yml file:
+
+‍macOS and Linux:
+```
+touch ~/.dbt/profiles.yml
+```
+
+‍Windows:
+```
+ni ~/.dbt/profiles.yml
+```
+‍
+Next, use a text editor to populate the `~/.dbt/profiles.yml` file based on the <AnchorNoRef href="https://docs.getdbt.com/reference/profiles.yml">dbt Core profiles.yml docs</AnchorNoRef>.
+
+## Snowflake Profiles
+
+Deep Channel supports authenticating with Snowflake through:
+* User/Password
+* Key Pair
+* Single Sign On (SSO)
+
+
+### SSO Authentication Caching
+When using the `authenticator: externalbrowser` configuration, you can enable
+caching to reduce authentication prompts.
+
+Caching is available on MacOS and Windows.
+
+Consult the following documents to enable caching,
+- <AnchorNoRef href="https://docs.getdbt.com/reference/warehouse-setups/snowflake-setup#sso-authentication">SSO Authentication</AnchorNoRef>
+- <AnchorNoRef href="https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#using-connection-caching-to-minimize-the-number-of-prompts-for-authentication-optional">Using Connection Caching to Minimize the Number of Prompts for Authentication — Optional</AnchorNoRef>
+- <AnchorNoRef href="https://docs.snowflake.com/en/sql-reference/parameters.html#label-allow-id-token">ALLOW_ID_TOKEN</AnchorNoRef>
+
+## BigQuery Profiles
+
+
+Deep Channel supports authenticating with BigQuery through:
+* [OAuth - `gcloud`](#oauth-via-gcloud)
+* [OAuth - Refresh Token](#oauth-via-gcloud)
+* [Service Account - JSON](#service-account-json)
+* [Service Account - File](#service-account-file)
+* [OAuth - Temporary Token (partial support)](#oauth-temporary-token)
+
+
+:::note
+
+For `optional config` fields mentioned below refer to <AnchorNoRef href="https://docs.getdbt.com/reference/warehouse-profiles/bigquery-profile#optional-configurations">the dbt-bigquery documentation</AnchorNoRef>.
+
+:::
+
+### OAuth via `gcloud`
+```yaml
+bigquery_oauth_gcloud:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: [...]
+      threads: 1
+      # one of `dataset` or `schema` must be specified
+      dataset: [...]
+      schema: [...]
+      [optional config fields]: [...]
+```
+
+
+#### `gcloud` Setup
+1. Install `gcloud` following the <AnchorNoRef href="https://cloud.google.com/sdk/downloads">official Google Cloud documentation</AnchorNoRef>.
+2. Authenticate using `gcloud`
+   ```sh
+   gcloud auth application-default login --scopes=https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/drive.readonly,https://www.googleapis.com/auth/iam.test,https://www.googleapis.com/auth/cloudplatformprojects.readonly
+   ```
+
+:::note
+
+Deep Channel requires additional Scopes; Please ensure you include all the scopes as stated in the command above.
+
+- `https://www.googleapis.com/auth/bigquery`
+- `https://www.googleapis.com/auth/drive.readonly`
+- `https://www.googleapis.com/auth/iam.test`
+- `https://www.googleapis.com/auth/cloudplatformprojects.readonly`
+
+:::
+
+### OAuth - Refresh token
+```yaml
+my_bigquery_db:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth-secrets
+      project: [...]
+      threads: 1
+      refresh_token: [...]
+      client_id: [...]
+      client_secret: [...]
+      scopes:
+        - https://www.googleapis.com/auth/bigquery
+      token_uri: https://www.googleapis.com/oauth2/v4/token
+      # one of `dataset` or `schema` must be specified
+      dataset: [...]
+      schema: [...]
+      [optional config fields]: [...]
+```
+
+:::note
+
+Note you must specify the `scopes` field as shown above to avoid authentication errors.
+
+:::
+
+### OAuth - Temporary token
+```yaml
+my_bigquery_db:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth-secrets
+      project: [...]
+      threads: 1
+      # one of `dataset` or `schema` must be specified
+      dataset: [...]
+      schema: [...]
+      token: [...]
+      [optional config fields]: [...]
+```
+
+#### Notes
+- Deep Channel supports full <DbtCoreR /> functionality with a OAuth (temporary token) connection, but no support for syncing or manual queries inside Deep Channel at present
+
+### Service Account - JSON 
+```yaml
+my_bigquery_db:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account-json
+      project: [...]
+      threads: 1
+      # one of `dataset` or `schema` must be specified
+      dataset: [...]
+      schema: [...]
+      [optional config fields]: [...]
+      keyfile_json:
+        type: [...]
+        project_id: [...]
+        private_key_id: [...]
+        private_key: [...]
+        client_email: [...]
+        client_id: [...]
+        auth_uri: [...]
+        token_uri: [...]
+        auth_provider_x509_cert_url: [...]
+        client_x509_cert_url: [...]
+```
+
+### Service Account - file
+```yaml
+my_bigquery_db:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: deepchannel-integration
+      # one of `dataset` or `schema` must be specified
+      dataset: [...]
+      schema: [...]
+      keyfile: /path/to/keyfile.json
+      [optional config fields]: [...]
+```
+## Databricks Profiles
+Databricks support will be added in March 2023.
+
+## Redshift Profiles
+Deep Channel supports password-based authentication for Redshift.
+
+## PostgreSQL
+Deep Channel supports password-based authentication for PostgreSQL.

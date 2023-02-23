@@ -1,0 +1,49 @@
+---
+sidebar_position: 3
+title: Models
+---
+import Keybinding from "@site/src/components/Keybinding";
+import DbtCoreR from "@site/src/components/DbtCoreR";
+
+When you open a <DbtCoreR /> model in Deep Channel, you'll edit the model with autocomplete suggestions and real time linting while having quick access to helpful insights about the model across four tabs: Overview, Linage, Compiled SQL, and Preview.
+
+## Editing a model
+
+### Autocomplete suggestions
+
+### Go to Definition
+
+### Hover to see schema
+
+### Peek Definition
+
+## Overview
+The Overview tab shows you pertinent information about your model, including its name, documentation, computed schema, and action helpers to quickly run or test the models and its upstream/downstream models.
+
+<img src="/product/model-overview.png"></img>
+
+
+### Query a Model's relation
+The **Relation** label will show you the fully qualified relation that that the model materializes. Click the arrow next to the relation name to open a new tab that queries the materialized relations.
+
+<img src="/product/query-models-relation.png"></img>
+
+### Run and Test helpers
+You can quickly run or test the model, its parents, children, or parents and childrens using the **run** and **test** dropdowns.
+
+<img src="/product/run-and-test-helpers.png"></img>
+
+### Columns
+You can quickly see the model's computed schema in the **Columns** section. Next to each column is its data type (if possible to compute). Clicking on a column will expose its description and tests.
+
+
+<img src="/product/model-overview-columns.png"></img>
+
+## Lineage
+<img src="/product/model-lineage.png"></img>
+
+## Compiled SQL
+<img src="/product/model-compiled-sql.png"></img>
+
+## Preview
+<img src="/product/model-preview.png"></img>

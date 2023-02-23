@@ -1,0 +1,68 @@
+---
+sidebar_position: 2
+title: Warehouse Explorer
+---
+import Keybinding from "@site/src/components/Keybinding";
+
+# Warehouse Explorer
+Click the **Connection** menu item or press <Keybinding mac="⇧ ⌘ C" winux="ctrl+shift+c" /> to open the Warehouse Explorer and view your data warehouse.
+
+The Warehouse Explorer will show a hierarchy of your data warehouse, listing each database, the the schemas of each database, the tables or views of each schema, and finally the columns of each table or view.
+
+<img src="/product/warehouse-explorer.png"></img>
+
+### Filter
+You can quickly find objects in your warehouse by typing a search expression in the **Search...** input and filter for all database objects that match the expression.
+
+<img src="/product/filter-warehouse-explorer.png"></img>
+
+## Quick Actions
+
+Right click any database, schema, table or view to show a menu of helpful actions.
+
+<img src="/product/warehouse-explorer-actions.png"></img>
+
+
+* **New Query** - open a new tab with a query against that database, table, or view
+* **Preview First 100 Rows** - open a new tab with a query against that table or view and preview the first 100 rows
+* **Sync** - synchronize the explorer with the warehouse
+* **Generate dbt Source** - generate a dbt source .yml file from a given database schema
+* **Generate dbt Base Model** - generate a dbt base model .sql file from a table or view
+* **Copy DDL** - copy to clipboard the data definition language (DDL) of a table or view
+* **Copy All Column Names** - copy to clipboard a comma separated list of columns of a table or view
+* **Copy Database/Table/View Name** - copy to clipboard the name of database, schema, table or view
+* **Copy Fully Qualified Table/View Name** - copy to clipboard the fully qualified name of table or view
+
+## Hide and Show Databases and Schemas
+
+You may not want to see every database or schema in your warehouse. To show or hide specific databases or schemas, simply click the number to the right of a given database or schema. A modal will appear allowing you to select which items you wish to show or hide.
+<img src="/product/hide-and-show-databases-and-schemas.png"></img>
+
+## Worksheets
+
+Open a new worksheet by clicking **+** or pressing <Keybinding mac="⌘ T" winux="ctrl+t" /> and execute arbitrary queries against your warehouse.
+
+Hit <Keybinding mac="⌘enter" winux="ctrl+enter" /> or the **Execute** button to run the statement.
+
+### Tab history
+Press <Keybinding mac="⌘ ⇧ h" winux="ctrl+shift+h" /> or click **History** to open a list of previously executed statements in a given tab. Clicking on a previous statement will show you its results.
+
+<img src="/product/query-history.png"></img>
+
+### Configure connection details
+Each worksheet uses a set of connection details, like the warehouse, database, schema or role used when running statements.
+
+Click the Connection dropdown to configure the connection details for the current worksheet.
+
+<img src="/product/configure-connection-details.png"></img>
+
+
+### Save a worksheet
+Hit <Keybinding mac="⌘ S" winux="ctrl+S" /> to save a Worksheet. 
+
+Save the worksheet to Saved Worksheets by giving it a name and clicking **Save Query**.
+
+Turn the worksheet into a dbt project file by clicking **Save** and choosing a location in your project.
+
+<img src="/product/save-worksheet.png"></img>
+

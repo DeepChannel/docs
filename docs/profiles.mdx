@@ -200,8 +200,24 @@ my_bigquery_db:
       keyfile: /path/to/keyfile.json
       [optional config fields]: [...]
 ```
+
 ## Databricks Profiles
-Databricks support will be added in March 2023.
+```yaml
+my_databricks_db:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      # optional, available when using dbt >= 1.1.1
+      catalog: [...]
+      schema: [...]
+      host: [...]
+      http_path: [...]
+      token: [...]
+      threads: 1
+```
+
+For additional information about setting up a Databricks connection, please see the <AnchorNoRef href="https://docs.databricks.com/partners/prep/dbt.html#step-2-create-a-dbt-project-and-specify-and-test-connection-settings">official Databricks documentation</AnchorNoRef>.
 
 ## Redshift Profiles
 Deep Channel supports password-based authentication for Redshift.

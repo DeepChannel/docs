@@ -17,7 +17,7 @@ Deep Channel will check for a `profiles.yml` file in four places:
 If you already have a `profiles.yml` you can skip ahead to [Projects](/projects). If you need to create or configure your `profiles.yml` file, keep reading.
 
 ### Creating a profiles.yml file
-If you don’t have one, you can create a new one in a few minutes. It is reccomended to create your profiles.yml file inside the `.dbt` directory of your home directory.
+If you don’t have one, you can create a new one in a few minutes. It is recommended to create your profiles.yml file inside the `.dbt` directory of your home directory.
 
 If you don’t have a `.dbt` folder in your home directory, just create a new one:
 
@@ -96,17 +96,12 @@ bigquery_oauth_gcloud:
 1. Install `gcloud` following the <AnchorNoRef href="https://cloud.google.com/sdk/downloads">official Google Cloud documentation</AnchorNoRef>.
 2. Authenticate using `gcloud`
    ```sh
-   gcloud auth application-default login --scopes=https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/drive.readonly,https://www.googleapis.com/auth/iam.test,https://www.googleapis.com/auth/cloudplatformprojects.readonly
+   gcloud auth application-default login --scopes=https://www.googleapis.com/auth/bigquery
    ```
 
 :::note
 
-Deep Channel requires additional Scopes; Please ensure you include all the scopes as stated in the command above.
-
-- `https://www.googleapis.com/auth/bigquery`
-- `https://www.googleapis.com/auth/drive.readonly`
-- `https://www.googleapis.com/auth/iam.test`
-- `https://www.googleapis.com/auth/cloudplatformprojects.readonly`
+dbt and Deep Channel requires the `https://www.googleapis.com/auth/bigquery` scope to be able to function; Please ensure you include this scopes as stated in the command above.
 
 :::
 

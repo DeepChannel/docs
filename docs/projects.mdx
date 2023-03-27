@@ -23,21 +23,27 @@ Click **Create dbt Project**. Enter a name for your project, select the version 
 <img src="/product/create-new-project.png"></img>
 
 
-## Manage a Project
+## Project Details
 
-The name of your active dbt Project will be shown at the top of the app. Clicking it will show you details about the project, allow you to close the project, or copy the project path or name.
+The name of your active dbt Project will be shown at the top of the app. Clicking it will show you details about the project, allowing you to close the project, copy the project's path or name, create a new project, or open a project.
 
-:::note
-In the near future you will be able to quickly jump between multiple dbt projects.
-:::
+### Set working directory
 
-### Set the active profile and target
+If the root of your open folder is not a dbt project, you will see a select allowing you to pick the working directory of the dbt project. This is helpful if your dbt project is nested in a larger folder structure, or if you have multiple dbt projects within a folder. 
+<img src="/product/set-working-directory.png"></img>
+
+### Open recent Project
+You can quickly jump to a recently opened project by clicking the project name and then Open and selecting from the list of recent projects.
+
+<img src="/product/open-recent-project.png"></img>
+
+## Set profile and target
 To the left of the active project is the active profile and target. Clicking that will allow you to change the profile and/or target as well as edit or refresh the contents of your **profiles.yml**.
 
 <img src="/product/profile-and-target-selection.png"></img>
 
 
-### Set the active dbt Core version
+## Set dbt Core version
 
 <DbtCoreR /> is embedded directly inside the app - you don't need to download or maintain installations of various versions. To upgrade or downgrade, simply click the selector and choose a different version. If you don't already have that version, it will be downloaded.
 
